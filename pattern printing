@@ -13,3 +13,75 @@ for i in range(6):
         print("*", end="")
     print("")
 ```
+2.print the following pattern
+
+      *
+     ***
+    *****
+   *******
+  *********
+ ***********
+*************
+
+
+def print_pyramid(rows):
+    for i in range(rows):
+        print(" " * (rows - i - 1) + "*" * (2 * i + 1))
+
+print_pyramid(7)
+
+3.print pattern
+[?2004l
+Enter the number of rows for the pyramid: 6
+      *
+     ***
+    *****
+   *******
+  *********
+ ***********
+*************
+*************
+ ***********
+  *********
+   *******
+    *****
+     ***
+      *
+// first  pyramid  to be printed
+def print_pyramid(rows):
+    for i in range(rows):
+        print(" " * (rows - i - 1) + "*" * (2 * i + 1))
+
+// revesre pyramid will be printed 
+def print_opposite_pyramid(rows):
+    for i in range(rows):
+        print(" " * i + "*" * (2 * (rows - i) - 1))
+
+rows = int(input("Enter the number of rows for the pyramid: "))
+
+print_pyramid(7)
+print_opposite_pyramid(7)
+
+or
+
+def pyrmid():     
+    for i in range(7):        
+        for j in range(7-i-1):              
+            print("",end=" ")     
+        for j in range(2*i+1):             
+            print("*",end="") 
+        print("") 
+
+def inverse_pyramid():
+    for i in range(7, 0, -1):
+        for j in range(7 - i):
+            print(" ", end="")
+        for j in range(2 * i - 1):
+            print("*", end="")
+        print("")
+ 
+pyrmid()
+inverse_pyramid()  
+
+//cmobintation of both will give you above pattern
+4.
