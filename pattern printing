@@ -84,4 +84,40 @@ pyrmid()
 inverse_pyramid()  
 
 //cmobintation of both will give you above pattern
-4.
+
+
+4.print below pattern
+*
+***
+*****
+*******
+*********
+***********
+*************
+*************
+***********
+*********
+*******
+*****
+***
+*
+to print below pattern follow question 3 and just remove the space from left in above half and from right down half
+
+def pyrmid():     
+    for i in range(7):        
+        for j in range(7-i-1):              
+            print("",end="")     
+        for j in range(2*i+1):             
+            print("*",end="") 
+        print("") 
+
+def inverse_pyramid():
+    for i in range(7, 0, -1):
+        for j in range(7 - i):
+            print("", end="")
+        for j in range(2 * i - 1):
+            print("*", end="")
+        print("")
+ 
+pyrmid()
+inverse_pyramid()  
