@@ -1,0 +1,968 @@
+a. occurnce of each charachter in array
+ 
+import java.util.HashMap;
+import java.util.Map;
+public class CharacterOccurrences {
+    public static void countOccurrences(String str) {
+        // Create a HashMap to store the count of each character
+        Map<Character, Integer> occurrences = new HashMap<>();
+
+        // Iterate through each character in the string
+        for (char ch : str.toCharArray()) {
+            // Update the count of the character in the HashMap
+            occurrences.put(ch, occurrences.getOrDefault(ch, 0) + 1);
+        }
+
+        // Print the count of occurrences for each character
+        for (Map.Entry<Character, Integer> entry : occurrences.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+
+    public static void main(String[] args) {
+        String str = "abcd123$mnmmmgf-%%";
+        System.out.println("Occurrences of each character in the string:");
+        countOccurrences(str);
+    }
+}
+
+paildrom number:
+  public class PalindromeNumber {
+    public static boolean isPalindrome(int num) {
+        int originalNum = num;
+        int reversedNum = 0;
+        
+        while (num > 0) {
+            int digit = num % 10;
+            reversedNum = reversedNum * 10 + digit;
+            num /= 10;
+        }
+        
+        return originalNum == reversedNum;
+    }
+
+    public static void main(String[] args) {
+        int num = 12321;
+        
+        if (isPalindrome(num)) {
+            System.out.println(num + " is a palindrome number.");
+        } else {
+            System.out.println(num + " is not a palindrome number.");
+        }
+    }
+}
+reverse a array:
+public class ReverseArray {
+    public static void reverse(int[] arr) {
+        int n = arr.length;
+        
+        // Swap elements from the start and end of the array until reaching the middle
+        for (int i = 0; i < n / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[n - i - 1];
+            arr[n - i - 1] = temp;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {12, 13, 14, 15, 16, 17};
+        System.out.println("Array before reversing: " + Arrays.toString(arr));
+        reverse(arr);
+        System.out.println("Array after reversing: " + Arrays.toString(arr));
+    }
+}
+
+
+1.Reverse a String: Iterate through the string and swap characters from start to end.
+ soluton:  public class ReverseString {
+    public static String reverseString(String s) {
+        // Convert the string to a character array
+        char[] charArray = s.toCharArray();
+        
+        // Initialize pointers for start and end of the array
+        int start = 0;
+        int end = s.length() - 1;
+        
+        // Reverse the characters in the array
+        while (start < end) {
+            // Swap characters at start and end pointers
+            char temp = charArray[start];
+            charArray[start] = charArray[end];
+            charArray[end] = temp;
+            
+            // Move the pointers towards each other
+            start++;
+            end--;
+        }
+        
+        // Convert the character array back to a string
+        return new String(charArray);
+    }
+
+    public static void main(String[] args) {
+        String inputStr = "hello";
+        String reversedStr = reverseString(inputStr);
+        System.out.println("Reversed string: " + reversedStr);
+    }
+}
+
+2.Check Palindrome: Compare characters from both ends of the string.
+ soluton: public class PalindromeChecker {
+    public static boolean isPalindrome(String s) {
+        // Convert the string to lowercase
+        s = s.toLowerCase();
+        
+        // Initialize pointers for start and end of the string
+        int start = 0;
+        int end = s.length() - 1;
+        
+        // Check characters from both ends of the string
+        while (start < end) {
+            // Ignore non-alphanumeric characters
+            while (start < end && !Character.isLetterOrDigit(s.charAt(start))) {
+                start++;
+            }
+            while (start < end && !Character.isLetterOrDigit(s.charAt(end))) {
+                end--;
+            }
+            
+            // Compare characters
+            if (s.charAt(start) != s.charAt(end)) {
+                return false; // Not a palindrome
+            }
+            
+            // Move the pointers towards each other
+            start++;
+            end--;
+        }
+        
+        return true; // Palindrome
+    }
+
+    public static void main(String[] args) {
+        String inputStr = "A man, a plan, a canal, Panama";
+        boolean isPalindrome = isPalindrome(inputStr);
+        if (isPalindrome) {
+            System.out.println("The string is a palindrome.");
+        } else {
+            System.out.println("The string is not a palindrome.");
+        }
+    }
+}
+
+3.Find the Missing Number: Use the sum formula to find the expected sum and subtract the sum of the array.
+
+  solution:public class FindMissingNumber {
+    public static int findMissing(int[] nums) {
+        // Calculate the expected sum of all numbers from 0 to n
+        int n = nums.length + 1; // n is the length of the array plus 1
+        int expectedSum = n * (n - 1) / 2; // Sum of an arithmetic series
+
+        // Calculate the actual sum of the elements in the array
+        int actualSum = 0;
+        for (int num : nums) {
+            actualSum += num;
+        }
+
+        // The missing number is the difference between the expected sum and the actual sum
+        return expectedSum - actualSum;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {0, 1, 2, 4, 5}; // Example array with one missing number
+        int missingNumber = findMissing(nums);
+        System.out.println("The missing number is: " + missingNumber);
+    }
+}
+
+
+
+4.Find Maximum and Minimum: Iterate through the array while keeping track of the maximum and minimum elements.
+ 
+ solution: public class FindMaxMin {
+    public static void findMaxMin(int[] arr) {
+        // Initialize variables to store the maximum and minimum elements
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+
+        // Iterate through the array
+        for (int num : arr) {
+            // Update the maximum element if necessary
+            if (num > max) {
+                max = num;
+            }
+            // Update the minimum element if necessary
+            if (num < min) {
+                min = num;
+            }
+        }
+
+        // Print the maximum and minimum elements
+        System.out.println("Maximum element: " + max);
+        System.out.println("Minimum element: " + min);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 7, 2, 8, 1, 5}; // Example array
+        findMaxMin(arr);
+    }
+}
+
+  
+5.Sum of Two Numbers: Use a hashmap to store the complement of each number and check if the complement exists in the hashmap.
+  solution:import java.util.HashMap;
+import java.util.Map;
+
+public class TwoSum {
+    public static int[] findTwoSum(int[] nums, int target) {
+        // Create a HashMap to store the complement of each number
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        // Iterate through the array
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            
+            // If the complement exists in the map, return the indices
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            
+            // Store the current number and its index in the map
+            map.put(nums[i], i);
+        }
+        
+        // If no such pair exists, return an empty array
+        return new int[0];
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] result = findTwoSum(nums, target);
+        
+        if (result.length == 2) {
+            System.out.println("Indices of the two numbers that sum up to " + target + ": " + result[0] + ", " + result[1]);
+        } else {
+            System.out.println("No such pair exists.");
+        }
+    }
+}
+
+6.Factorial: Use recursion or iteration to calculate the factorial.
+   using recusin:
+public class Factorial {
+    public static int factorial(int n) {
+        // Base case: factorial of 0 is 1
+        if (n == 0) {
+            return 1;
+        }
+        // Recursive case: factorial of n is n * factorial(n - 1)
+        return n * factorial(n - 1);
+    }
+
+    public static void main(String[] args) {
+        int n = 5; // Example input
+        int result = factorial(n);
+        System.out.println("Factorial of " + n + " is: " + result);
+    }
+}
+ using iteration:
+public class Factorial {
+    public static int factorial(int n) {
+        int result = 1;
+        // Multiply numbers from 1 to n
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int n = 5; // Example input
+        int result = factorial(n);
+        System.out.println("Factorial of " + n + " is: " + result);
+    }
+}
+
+  
+7.Fibonacci Series: Use recursion or iteration to generate the Fibonacci sequence.
+  using  recursion:
+         public class Fibonacci {
+    public static int fibonacci(int n) {
+        // Base cases: fibonacci(0) = 0, fibonacci(1) = 1
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        }
+        // Recursive case: fibonacci(n) = fibonacci(n - 1) + fibonacci(n - 2)
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static void main(String[] args) {
+        int n = 5; // Example input
+        System.out.println("Fibonacci sequence up to " + n + ":");
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+    }
+}
+ iteration:public class Fibonacci {
+    public static void fibonacci(int n) {
+        int a = 0, b = 1, c;
+        System.out.print("Fibonacci sequence up to " + n + ": ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(a + " ");
+            c = a + b;
+            a = b;
+            b = c;
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = 5; // Example input
+        fibonacci(n);
+    }
+}
+
+8.Check Prime Number: Iterate from 2 to the square root of the number to check for divisors.
+ solution:public class PrimeChecker {
+    public static boolean isPrime(int num) {
+        // Base cases: 0 and 1 are not prime numbers
+        if (num <= 1) {
+            return false;
+        }
+        
+        // Check for divisors from 2 to the square root of the number
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false; // Found a divisor, not a prime number
+            }
+        }
+        
+        return true; // No divisors found, prime number
+    }
+
+    public static void main(String[] args) {
+        int num = 17; // Example input
+        if (isPrime(num)) {
+            System.out.println(num + " is a prime number.");
+        } else {
+            System.out.println(num + " is not a prime number.");
+        }
+    }
+}
+
+9.Remove Duplicates: Use two pointers to track unique elements.
+ solution:
+import java.util.Arrays;
+
+public class RemoveDuplicates {
+    public static int removeDuplicates(int[] nums) {
+        // Edge case: if the array is empty or has only one element, no duplicates to remove
+        if (nums.length <= 1) {
+            return nums.length;
+        }
+
+        // Initialize two pointers: one to track unique elements and one to iterate through the array
+        int uniqueIndex = 0;
+
+        // Iterate through the array starting from the second element
+        for (int i = 1; i < nums.length; i++) {
+            // If the current element is different from the previous unique element, move it to the next position
+            if (nums[i] != nums[uniqueIndex]) {
+                uniqueIndex++;
+                nums[uniqueIndex] = nums[i];
+            }
+        }
+
+        // The unique elements are up to the uniqueIndex position (inclusive), so return the count
+        return uniqueIndex + 1;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 2, 2, 3, 4, 4, 5}; // Example input
+        int newLength = removeDuplicates(nums);
+        System.out.println("Array after removing duplicates: " + Arrays.toString(nums));
+        System.out.println("New length of array: " + newLength);
+    }
+}
+
+10.Merge Two Sorted Arrays: Merge the arrays while comparing elements from both arrays.
+solution:
+  
+You can merge two sorted arrays while comparing elements from both arrays and placing 
+them in a new array or in one of the original arrays. Here's how you can implement this in Java:
+Check Anagram: Sort both strings and compare them.
+
+import java.util.Arrays;
+
+public class MergeSortedArrays {
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = m - 1; // Index to traverse nums1 from the end
+        int j = n - 1; // Index to traverse nums2 from the end
+        int k = m + n - 1; // Index to place merged elements in nums1
+        
+        // Merge nums1 and nums2 by comparing elements from the end
+        while (i >= 0 && j >= 0) {
+            if (nums1[i] > nums2[j]) {
+                nums1[k--] = nums1[i--];
+            } else {
+                nums1[k--] = nums2[j--];
+            }
+        }
+        
+        // If there are remaining elements in nums2, copy them to nums1
+        while (j >= 0) {
+            nums1[k--] = nums2[j--];
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] nums1 = {1, 3, 5, 0, 0, 0}; // Example input nums1 with extra space
+        int m = 3; // Number of elements in nums1
+        int[] nums2 = {2, 4, 6}; // Example input nums2
+        int n = 3; // Number of elements in nums2
+        
+        merge(nums1, m, nums2, n);
+        
+        System.out.println("Merged array: " + Arrays.toString(nums1));
+    }
+}
+
+11.Count Occurrences: Iterate through the array and count occurrences of the target element.
+  solution:  
+ public class CountOccurrences {
+    public static int countOccurrences(int[] nums, int target) {
+        int count = 0; // Initialize counter for occurrences
+        
+        // Iterate through the array and count occurrences of the target element
+        for (int num : nums) {
+            if (num == target) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4, 2, 2, 5}; // Example input array
+        int target = 2; // Example target element
+        int occurrences = countOccurrences(nums, target);
+        
+        System.out.println("Occurrences of " + target + " in the array: " + occurrences);
+    }
+}
+
+12.Reverse an Integer: Convert the integer to a string, reverse it, and convert it back to an integer.
+    solution:
+   public class ReverseInteger {
+    public static int reverse(int x) {
+        // Convert the integer to a string
+        String str = String.valueOf(x);
+        
+        // Check if the number is negative
+        boolean isNegative = false;
+        if (str.charAt(0) == '-') {
+            isNegative = true;
+            str = str.substring(1); // Remove the negative sign
+        }
+        
+        // Reverse the string
+        StringBuilder reversedStr = new StringBuilder(str).reverse();
+        
+        // Convert the reversed string back to an integer
+        int reversedNum;
+        try {
+            reversedNum = Integer.parseInt(reversedStr.toString());
+        } catch (NumberFormatException e) {
+            // Handle integer overflow
+            return 0;
+        }
+        
+        // Add back the negative sign if necessary
+        if (isNegative) {
+            reversedNum *= -1;
+        }
+        
+        return reversedNum;
+    }
+
+    public static void main(String[] args) {
+        int x = 12345; // Example input
+        int reversed = reverse(x);
+        System.out.println("Reversed integer: " + reversed);
+    }
+}
+
+13.Calculate Power: Use recursion or iteration to calculate the power.
+   solution:
+   1.recursion;
+    public class PowerCalculator {
+    public static double power(double x, int n) {
+        // Base case: if n is 0, return 1
+        if (n == 0) {
+            return 1;
+        }
+        // Recursive case: if n is positive, calculate x^n recursively
+        else if (n > 0) {
+            return x * power(x, n - 1);
+        }
+        // If n is negative, calculate 1 / (x^-n) recursively
+        else {
+            return 1 / (x * power(x, -n - 1));
+        }
+    }
+
+    public static void main(String[] args) {
+        double x = 2; // Base number
+        int n = 5; // Power
+        double result = power(x, n);
+        System.out.println(x + " raised to the power of " + n + " is: " + result);
+    }
+}
+ 2.iternation:
+   public class PowerCalculator {
+    public static double power(double x, int n) {
+        double result = 1;
+        // If n is negative, invert x and make n positive
+        if (n < 0) {
+            x = 1 / x;
+            n = -n;
+        }
+        // Multiply x to the result n times
+        for (int i = 0; i < n; i++) {
+            result *= x;
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        double x = 2; // Base number
+        int n = 5; // Power
+        double result = power(x, n);
+        System.out.println(x + " raised to the power of " + n + " is: " + result);
+    }
+}
+
+
+14.Find Maximum Subarray Sum: Use Kadane's algorithm to find the maximum sum subarray.
+  solution:  Kadane's algorithm is an efficient method for finding the maximum sum subarray within
+   a given array of integers. Here's how you can implement it in Java:
+   public class MaximumSubarraySum {
+    public static int maxSubarraySum(int[] nums) {
+        int maxEndingHere = nums[0]; // Initialize max sum ending at current index
+        int maxSoFar = nums[0]; // Initialize max sum so far
+        
+        // Iterate through the array starting from the second element
+        for (int i = 1; i < nums.length; i++) {
+            // Update max ending at current index: either add the current element or start a new subarray
+            maxEndingHere = Math.max(nums[i], maxEndingHere + nums[i]);
+            
+            // Update max sum so far
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
+        }
+        
+        return maxSoFar;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4}; // Example input array
+        int maxSum = maxSubarraySum(nums);
+        System.out.println("Maximum subarray sum: " + maxSum);
+    }
+}
+
+15.Binary Search: Implement binary search algorithm.
+  solution: public class BinarySearch {
+    public static int binarySearch(int[] nums, int target) {
+        int left = 0; // Initialize left pointer
+        int right = nums.length - 1; // Initialize right pointer
+        
+        // Continue searching while left pointer is less than or equal to right pointer
+        while (left <= right) {
+            int mid = left + (right - left) / 2; // Calculate middle index
+            
+            // If target is found at middle index, return its index
+            if (nums[mid] == target) {
+                return mid;
+            }
+            // If target is greater than the middle element, search the right half
+            else if (nums[mid] < target) {
+                left = mid + 1;
+            }
+            // If target is smaller than the middle element, search the left half
+            else {
+                right = mid - 1;
+            }
+        }
+        
+        // If target is not found, return -1
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9}; // Example sorted array
+        int target = 5; // Example target element
+        int index = binarySearch(nums, target);
+        if (index != -1) {
+            System.out.println("Element " + target + " found at index " + index);
+        } else {
+            System.out.println("Element " + target + " not found in the array");
+        }
+    }
+}
+
+16.Rotate Array: Reverse the entire array, then reverse the first k elements and the remaining elements separately.
+ solution:   import java.util.Arrays;
+
+public class RotateArray {
+    public static void rotate(int[] nums, int k) {
+        int n = nums.length;
+        k = k % n; // Adjust k if it's greater than the length of the array
+        
+        // Reverse the entire array
+        reverse(nums, 0, n - 1);
+        
+        // Reverse the first k elements
+        reverse(nums, 0, k - 1);
+        
+        // Reverse the remaining elements
+        reverse(nums, k, n - 1);
+    }
+    
+    private static void reverse(int[] nums, int start, int end) {
+        while (start < end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4, 5, 6, 7}; // Example input array
+        int k = 3; // Number of rotations
+        rotate(nums, k);
+        System.out.println("Rotated array: " + Arrays.toString(nums));
+    }
+}
+
+17.Stack Implementation: Implement push, pop, and peek operations using arrays or linked lists.
+  solution:
+  public class Stack {
+    private int maxSize;
+    private int[] stackArray;
+    private int top;
+
+    // Constructor to initialize the stack with a maximum size
+    public Stack(int size) {
+        this.maxSize = size;
+        this.stackArray = new int[maxSize];
+        this.top = -1; // Initialize top pointer to -1 (empty stack)
+    }
+
+    // Method to push an element onto the stack
+    public void push(int element) {
+        if (isFull()) {
+            System.out.println("Stack overflow! Cannot push element " + element);
+            return;
+        }
+        stackArray[++top] = element;
+        System.out.println("Pushed element " + element + " onto the stack");
+    }
+
+    // Method to pop an element from the stack
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack underflow! Cannot pop from an empty stack");
+            return -1; // Return -1 indicating stack underflow
+        }
+        int poppedElement = stackArray[top--];
+        System.out.println("Popped element " + poppedElement + " from the stack");
+        return poppedElement;
+    }
+
+    // Method to peek at the top element of the stack without removing it
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty! No element to peek");
+            return -1; // Return -1 indicating empty stack
+        }
+        return stackArray[top];
+    }
+
+    // Method to check if the stack is empty
+    public boolean isEmpty() {
+        return (top == -1);
+    }
+
+    // Method to check if the stack is full
+    public boolean isFull() {
+        return (top == maxSize - 1);
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack(5);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println("Top element of the stack: " + stack.peek());
+        stack.pop();
+        System.out.println("Top element of the stack after popping: " + stack.peek());
+    }
+}
+
+18.Queue Implementation: Implement enqueue, dequeue, and peek operations using arrays or linked lists.
+  solution:
+    public class Queue {
+    private int maxSize;
+    private int[] queueArray;
+    private int front; // Front of the queue
+    private int rear; // Rear of the queue
+    private int size; // Current size of the queue
+
+    // Constructor to initialize the queue with a maximum size
+    public Queue(int size) {
+        this.maxSize = size;
+        this.queueArray = new int[maxSize];
+        this.front = 0;
+        this.rear = -1;
+        this.size = 0;
+    }
+
+    // Method to add an element to the rear of the queue (enqueue)
+    public void enqueue(int element) {
+        if (isFull()) {
+            System.out.println("Queue is full! Cannot enqueue element " + element);
+            return;
+        }
+        rear = (rear + 1) % maxSize; // Circular increment of rear pointer
+        queueArray[rear] = element;
+        size++;
+        System.out.println("Enqueued element " + element);
+    }
+
+    // Method to remove an element from the front of the queue (dequeue)
+    public int dequeue() {
+        if (i
+
+19.LinkedList Operations: Implement insertion, deletion, and traversal operations for a singly linked list.
+   class Node {
+    int data;
+    Node next;
+
+    // Constructor to create a new node with given data
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+public class SinglyLinkedList {
+    private Node head;
+
+    // Method to insert a new node at the end of the linked list
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+        System.out.println("Inserted " + data + " into the linked list");
+    }
+
+    // Method to delete a node with given data from the linked list
+    public void delete(int data) {
+        if (head == null) {
+            System.out.println("Linked list is empty! Cannot delete element");
+            return;
+        }
+        if (head.data == data) {
+            head = head.next;
+            System.out.println("Deleted " + data + " from the linked list");
+            return;
+        }
+        Node prev = null;
+        Node current = head;
+        while (current != null && current.data != data) {
+            prev = current;
+            current = current.next;
+        }
+        if (current == null) {
+            System.out.println(data + " not found in the linked list");
+            return;
+        }
+        prev.next = current.next;
+        System.out.println("Deleted " + data + " from the linked list");
+    }
+
+    // Method to traverse and print the elements of the linked list
+    public void display() {
+        if (head == null) {
+            System.out.println("Linked list is empty");
+            return;
+        }
+        Node temp = head;
+        System.out.print("Linked list: ");
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
+   
+sorting teachnques:
+ 1.bubble sort:
+   public class BubbleSort {
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        boolean swapped;
+        
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap arr[j] and arr[j + 1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+            
+            // If no two elements were swapped in the inner loop, then the array is already sorted
+            if (!swapped) {
+                break;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        System.out.println("Array before sorting: " + Arrays.toString(arr));
+        bubbleSort(arr);
+        System.out.println("Array after sorting: " + Arrays.toString(arr));
+    }
+}
+2.insertion sort:
+  public class InsertionSort {
+    public static void insertionSort(int[] arr) {
+        int n = arr.length;
+        
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            
+            // Move elements of arr[0..i-1], that are greater than key, to one position ahead of their current position
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {12, 11, 13, 5, 6};
+        System.out.println("Array before sorting: " + Arrays.toString(arr));
+        insertionSort(arr);
+        System.out.println("Array after sorting: " + Arrays.toString(arr));
+    }
+}
+3.selection sort
+  public class SelectionSort {
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            
+            // Find the minimum element in the unsorted part of the array
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            
+            // Swap the found minimum element with the first element
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {64, 25, 12, 22, 11};
+        System.out.println("Array before sorting: " + Arrays.toString(arr));
+        selectionSort(arr);
+        System.out.println("Array after sorting: " + Arrays.toString(arr));
+    }
+}
+
+Searching Sortiong:
+   1.binary Search:
+    public class BinarySearch {
+    public static int binarySearch(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (arr[mid] == target) {
+                return mid;
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return -1; // If target is not found in the array
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
+        int target = 13;
+        int index = binarySearch(arr, target);
+
+        if (index != -1) {
+            System.out.println("Element " + target + " found at index " + index);
+        } else {
+            System.out.println("Element " + target + " not found in the array");
+        }
+    }
+}
+
+2.linear search
+  public class LinearSearch {
+    public static int linearSearch(int[] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                return i; // Return the index if the target is found
+            }
+        }
+        return -1; // Return -1 if the target is not found in the array
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {4, 2, 7, 1, 9, 5, 3};
+        int target = 7;
+        int index = linearSearch(arr, target);
+
+        if (index != -1) {
+            System.out.println("Element " + target + " found at index " + index);
+        } else {
+            System.out.println("Element " + target + " not found in the array");
+        }
+    }
+}
