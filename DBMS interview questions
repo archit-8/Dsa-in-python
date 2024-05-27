@@ -1,0 +1,62 @@
+What is DBMS?
+
+Answer: DBMS stands for Database Management System. It is a software system that allows users to define, create, manipulate, and manage databases.
+What are the advantages of using DBMS?
+
+Answer: Advantages of using DBMS include data integrity, data security, data consistency, efficient data retrieval, reduced data redundancy, and improved data sharing.
+What is a database schema?
+
+Answer: A database schema is a blueprint that defines the structure and organization of a database, including tables, columns, data types, relationships, and constraints.
+What is a primary key?
+
+Answer: A primary key is a unique identifier for each record (row) in a table. It ensures that each record can be uniquely identified and retrieved.
+What is a foreign key?
+
+Answer: A foreign key is a field in a table that references the primary key of another table. It establishes a relationship between the two tables and ensures referential integrity.
+What is normalization?
+
+Answer: Normalization is the process of organizing data in a database to reduce redundancy and dependency. It involves breaking down large tables into smaller ones and defining relationships between them.
+What are the different normal forms?
+
+Answer: The different normal forms include First Normal Form (1NF), Second Normal Form (2NF), Third Normal Form (3NF), Boyce-Codd Normal Form (BCNF), and Fourth Normal Form (4NF).
+What is a join in SQL?
+
+Answer: A join in SQL is used to combine rows from two or more tables based on a related column between them. Common types of joins include INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN.
+What is a view in SQL?
+
+Answer: A view in SQL is a virtual table derived from one or more tables. It represents a subset of data stored in the database and is used to simplify complex queries and provide security restrictions.
+What is an index in a database?
+
+Answer: An index in a database is a data structure that improves the speed of data retrieval operations on a table. It allows for quick access to rows based on the values of one or more columns.
+What is ACID in DBMS?
+
+Answer: ACID stands for Atomicity, Consistency, Isolation, and Durability. It is a set of properties that ensure the reliability of transactions in a database system.
+What is a transaction in DBMS?
+
+Answer: A transaction in DBMS is a logical unit of work that consists of one or more database operations (such as insert, update, delete). It must satisfy the ACID properties to ensure data integrity.
+What is a stored procedure?
+
+Answer: A stored procedure is a precompiled collection of SQL statements stored in the database catalog. It can be executed multiple times by invoking its name and passing parameters.
+What is a trigger in DBMS?
+
+Answer: A trigger in DBMS is a special type of stored procedure that is automatically executed (or fired) in response to certain database events, such as insert, update, or delete operations on a table.
+What is a deadlock?
+
+Answer: A deadlock occurs when two or more transactions are waiting for each other to release locks on resources that the other transaction needs. This results in a stalemate where none of the transactions can proceed.
+What is data integrity?
+
+Answer: Data integrity refers to the accuracy, consistency, and reliability of data stored in a database. It ensures that data is valid and maintains its integrity over time.
+What is a constraint in DBMS?
+
+Answer: A constraint in DBMS is a rule that restricts the values allowed in a database column. Common types of constraints include primary key, foreign key, unique, not null, and check constraints.
+What is a composite key?
+
+Answer: A composite key is a combination of two or more columns that uniquely identify a record in a table. It is used when a single column cannot uniquely identify records.
+What is the difference between DELETE and TRUNCATE in SQL?
+
+Answer: DELETE is a DML (Data Manipulation Language) command used to remove rows from a table based on a condition. 
+        TRUNCATE is a DDL (Data Definition Language) command used to remove all rows from a table, resetting the table's storage space.
+What is the difference between clustered and non-clustered index?
+
+Answer: A clustered index determines the physical order of data rows in a table and is created on the primary key column by default. 
+        A non-clustered index does not affect the physical order of data and is created on columns other than the primary key.
