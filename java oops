@@ -1,0 +1,77 @@
+What is Object-Oriented Programming (OOP)?
+
+Answer: Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data in the form of fields (attributes) and code in the form of procedures (methods).
+What are the four main principles of OOP?
+
+Answer: The four main principles of OOP are encapsulation, inheritance, polymorphism, and abstraction.
+Explain encapsulation.
+
+Answer: Encapsulation is the bundling of data and methods that operate on that data into a single unit (class).
+        It hides the internal state of an object from the outside world and only exposes a public interface for interaction.
+What is inheritance?
+
+Answer: Inheritance is a mechanism in which a new class (subclass) is created based on an existing class (superclass), inheriting its attributes and methods. 
+        It allows code reusability and facilitates the creation of a hierarchy of classes.
+What is polymorphism?
+
+Answer: Polymorphism refers to the ability of objects to take on multiple forms.
+        In Java, polymorphism is achieved through method overriding (runtime polymorphism) and method overloading (compile-time polymorphism).
+Explain method overloading and method overriding.
+
+Answer: Method overloading is the process of defining multiple methods in a class with the same name but different parameters.
+        Method overriding is the process of providing a new implementation for a method in the subclass that is already defined in its superclass.
+What is abstraction?
+
+Answer: Abstraction is the process of hiding the implementation details and showing only the essential features of an object.
+        It allows for the creation of simple, easy-to-understand interfaces for complex systems.
+What is a class and an object?
+
+Answer: A class is a blueprint or template for creating objects. 
+        An object is an instance of a class, representing a real-world entity with its own state (attributes) and behavior (methods).
+What is a constructor?
+
+Answer: A constructor is a special type of method that is automatically called when an object of a class is instantiated. 
+        It is used to initialize the state of an object.
+What is the difference between == and .equals() method in Java?
+
+Answer: The == operator is used to compare references (memory addresses) of two objects, while the .equals() method is used to compare the contents (values) of two objects.
+What is the this keyword used for?
+
+Answer: The this keyword in Java refers to the current instance of the class. 
+        It is used to differentiate between instance variables and parameters with the same name, to invoke current class methods and constructors, and to pass the current object as a parameter.
+What are access modifiers?
+
+Answer: Access modifiers in Java are keywords used to control the visibility of classes, variables, methods, and constructors. 
+        The main access modifiers are public, private, protected, and the default (no modifier).
+What is composition in Java?
+
+Answer: Composition is a design technique in which a class contains an object of another class as one of its instance variables. 
+        It allows for creating complex objects by combining simpler objects.
+What is the static keyword used for?
+
+Answer: The static keyword in Java is used to declare members (variables and methods) that belong to the class rather than to instances of the class. 
+        Static members are shared among all instances of the class.
+What is method overriding and why is it used?
+
+Answer: Method overriding is the process of providing a new implementation for a method in the subclass that is already defined in its superclass. 
+        It is used to achieve runtime polymorphism and to provide specific behavior for a subclass.
+What is method overloading and why is it used?
+
+Answer: Method overloading is the process of defining multiple methods in a class with the same name but different parameters. 
+        It is used to provide multiple ways to perform the same operation with different parameter lists.
+What is the difference between ArrayList and LinkedList?
+
+Answer: ArrayList is implemented as a resizable array, while LinkedList is implemented as a doubly linked list.
+        ArrayList provides fast random access and is better for storing and accessing elements by index, w
+        hereas LinkedList provides faster insertion and deletion of elements, especially from the middle of the list.
+What is the final keyword used for?
+
+Answer: The final keyword in Java is used to declare constants, prevent method overriding, and prevent subclassing (making a class immutable).
+What is the difference between interface and abstract class?
+
+Answer: An interface is a reference type similar to a class that can contain only constants, method signatures, default methods, static methods, and nested types.
+        An abstract class is a class that cannot be instantiated and can contain abstract methods as well as concrete methods and fields.
+What is the purpose of the super keyword?
+
+Answer: The super keyword in Java is used to refer to the superclass (parent class) of the current object. It is used to access superclass methods and constructors, 
+        and to differentiate between superclass and subclass members with the same name.
