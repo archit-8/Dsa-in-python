@@ -1,0 +1,165 @@
+Ques 1: What are the main features of JAVA?
+  Ans.
+  Platform Independence: Java’s “write once, run anywher just machine have Jvm.
+  Object-Oriented:Java is built on OOP principles.
+  Automatic Memory Management (Garbage Collection)
+  Strongly Typed and Statically Typed
+  Multi-Threading Support
+  Rich Standard Library
+  Exception Handling
+  Security
+
+Ques 2: What is a class?
+  Ans.Class is a blueprint or template from which objects are created and describes the contents of the object. 
+      A class should be defined before creating an object.
+  
+Ques 3: What is the difference between JDK, JRE and JVM?  
+       JDK(Java Development Kit): is a comprehensive development kit that includes tools and libraries for Java development, including JRE.
+       JRE: is the runtime environment required for running Java applications and contains JVM and libraries necessary for execution.
+       JVM:Java virtual Machine :JVM is the runtime environment where Java bytecode is executed.
+       JIT:converts bit code into machine code.
+  
+Ques 4: Explain Virtual Machine (JVM) architecture.
+
+Ques 5: What are the data types in JAVA?
+       Primitive Data Types:
+
+      byte: 8-bit signed integer. Range: -128 to 127.
+      short: 16-bit signed integer. Range: -32,768 to 32,767.
+      int: 32-bit signed integer. Range: -2^31 to (2^31 – 1).
+      long: 64-bit signed integer. Range: -2^63 to (2^63 – 1).
+      float: 32-bit floating-point number. Used for decimal values. Example: 3.14f.
+      double: 64-bit floating-point number. Used for decimal values with higher precision. Example: 3.14.
+      char: 16-bit Unicode character. Represents a single character, such as ‘A’ or ‘5’.
+      boolean: Represents true or false values.
+  
+  Reference Data Types:
+
+      Classes: User-defined types created using class definitions.
+      Interfaces: User-defined types that define a set of abstract methods.
+      Arrays: Ordered collections of elements of the same data type. Arrays can hold both primitive and reference types.
+      Enumerations (Enums): A special data type used to define a set of constants.
+      Strings: A sequence of characters. Although it behaves like a reference type, it is implemented as an object in Java.
+       
+Ques 6: What is the lambda expression in JAVA?
+       A lambda expression in Java is a compact way to define and use anonymous functions.
+       It simplifies code, especially when working with functional interfaces.
+              Here’s a brief example:
+              BinaryOperator add = (a, b) -> a + b;
+              int result = add.apply(5, 3);  
+
+Ques 9: What is the difference between Java and C++
+        Memory Management: in java automatic and C++ we have to do.
+        Platform Dependency
+        Object-Oriented Programming:
+        Runtime Environment
+        Standard Libraries
+  
+Ques 11: What are the consequences if we do not declare the `main` method as `static` in Java?
+        If we do not declare the main method as static in Java, we will get a compilation error, 
+        and our program will not run. The static keyword is necessary because it allows the JVM 
+        to invoke the main method without creating an instance of the class, main is a fundamental 
+       requirement in Java to serve as the entry point for your program, and not adhering to this 
+       convention will result in compilation errors and prevent your program from running.
+  
+  Ques 12: Define Copy constructor in java.
+          n Java, a copy constructor is a special type of constructor that allows us
+          to create a new object by copying the values of an existing object of the same class. 
+          It is a constructor that takes an object of the same class as a parameter and initializes 
+          the new object with the values of the existing object. Here’s a typical structure for a copy constructor in Java
+
+          public class MyClass {
+              private int value;
+ 
+          // Copy constructor
+               public MyClass(MyClass other) {
+              this.value = other.value;
+         }
+   
+        // Other constructors and methods for MyClass
+       }
+
+Ques 13: What are shallow copy and deep copy in java?
+         Shallow Copy: Copies the object and its references, so both the original and the copy share the same referenced objects. 
+         Changes to those shared objects affect both copies.
+
+         Deep Copy: Creates a new object and duplicates all referenced objects recursively. 
+         It results in two completely independent copies with no shared references. Changes to one copy don’t affect the other.
+         class Person {
+    private String name;
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Shallow copy example
+        Person person1 = new Person("Alice");
+        Person person2 = person1; // Shallow copy
+
+        // Changing name of person1
+        person1.getName().toUpperCase();
+
+        // Output name of person2
+        System.out.println(person2.getName()); // Output: ALICE (due to shallow copy)
+
+        // Deep copy example
+        Person person3 = new Person("Bob");
+        Person person4 = new Person(person3.getName()); // Deep copy
+
+        // Changing name of person3
+        person3.getName().toUpperCase();
+
+        // Output name of person4
+        System.out.println(person4.getName()); // Output: Bob (due to deep copy)
+    }
+}
+
+Ques 14: What is Autoboxing and Unboxing in JAVA?
+         Autoboxing: Converting a primitive type to its corresponding wrapper class object.
+                     Example: `Char` to `Character`.
+
+         Unboxing: Converting a wrapper class object to its corresponding primitive type.
+                    Example: `Character` to `Char`.
+
+  Ques 15: What is the purpose of the "finally" block in exception handeling? 
+           The `finally` block in exception handling ensures that specific code is always executed,
+           whether an exception is thrown or not. It’s commonly used for cleanup operations and guarantees 
+           execution even in exceptional situations.
+  
+  Ques 16: What is method overriding in JAVA?
+            If a subclass provides a specific implementation of a method that is already provided by its parent class, 
+            it is known as Method Overriding. It is used for runtime polymorphism and to implement the interface methods. 
+         Rules for Method overriding
+              The method must have the same name as in the parent class.
+              The method must have the same signature as in the parent class. 
+              Two classes must have an IS-A relationship between them. 
+  
+  Ques 17: What is method overloading in JAVA?
+          Method overloading in Java is a feature that allows you to define multiple methods in a class with the same name but
+          different parameter lists (different types or numbers of parameters). The key distinction among overloaded methods is 
+          the method signature, which includes the method name and the parameter types.
+  
+  Ques 18: What do you mean by data encapsulation?
+          Data encapsulation in OOP means bundling data (attributes) and methods (functions) into a single unit (a class) and controlling access to that data. 
+           It hides the internal details, provides security, and promotes code organization and flexibility.
+  
+  Ques 19: What is a Memory Leak? Discuss some common causes of it.
+           A memory leak occurs when a program doesn’t release memory it no longer needs, leading to increased memory usage. 
+           Common causes include not freeing allocated memory, retaining references to unnecessary objects, and not releasing 
+           non-memory resources like files or sockets.
+  Ques 20: What do you mean by Collections in Java? What are the constituents of Collections in Java?
+           In Java, “Collections” refers to a framework and a set of classes and interfaces that provide a unified way to work with groups of objects.
+           Collections allow you to store, manipulate, and access groups of elements in a structured and efficient manner. Key constituents of Collections in Java include:
+
+             Interfaces: Such as `List`, `Set`, and `Map`, which define common behaviors for collections.
+             Classes: Such as `ArrayList`, `HashSet`, and `HashMap`, which implement these interfaces and provide concrete data structures for collections.
+              Algorithms: A set of utility methods to perform common operations on collections, such as sorting, searching, and manipulating elements.
+
+    
